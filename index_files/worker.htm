@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0802)https://progallery.wix.com/worker.html -->
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+     
+<META charset="utf-8">     
+<META http-equiv="X-UA-Compatible" content="IE=edge">     <TITLE>Wix Pro Gallery 
+Worker</TITLE>     
+<META name="description" content="">     
+<META name="viewport" content="width=device-width">     
+<META name="robots" content="noindex, nofollow">     
+<META name="referrer" content="origin">         
+<SCRIPT>
+      window.staticsVersion="2.1521.0";
+      window.staticBaseUrl="//static.parastorage.com/";
+      window.staticsUrl="https://static.parastorage.com/services/pro-gallery-statics/2.1521.0/";
+      window.instance = "vJ2fEnAfdgtBumEmoqi80gH7elOrXdrIxLxz919nMZc.eyJpbnN0YW5jZUlkIjoiNzA5NDcyYTUtZTJmZS00N2RiLTg5NTAtNGFkNDAwODA1YTQzIiwiYXBwRGVmSWQiOiIxNDI3MWQ2Zi1iYTYyLWQwNDUtNTQ5Yi1hYjk3MmFlMWY3MGUiLCJtZXRhU2l0ZUlkIjoiOTVkZTk5ZDEtMDE1MC00YjIwLTk5NTgtZjdjM2YzYjlmOWRlIiwic2lnbkRhdGUiOiIyMDE5LTEyLTE2VDEyOjE4OjU2LjE4NFoiLCJkZW1vTW9kZSI6ZmFsc2UsIm9yaWdpbkluc3RhbmNlSWQiOiI3YjJlNTUzMy1hMDdhLTQxY2YtYWM1Yy00ZThiZmY2OGI3MGQiLCJhaWQiOiI1MjM0MWQ5MC02ZmUyLTQzZTItOGRmYy0xYmNjNWU4MzlkYzIiLCJiaVRva2VuIjoiZTU0YWViNzQtZTNhZS0wY2ZiLTEwMDgtYmQxN2YzMzlhMzlkIiwic2l0ZU93bmVySWQiOiJiMWViMjdmMC0wNWRhLTQ2MWMtYjRkYS1hMjVhMjk5ZmI5YmIifQ";
+      window.instanceId = "709472a5-e2fe-47db-8950-4ad400805a43";
+      window.isStore = "false";
+      window.proGalleryWidget = 'Worker';
+      window.isWorker = true;
+      window.isProGallery = true;
+
+      console.log("Worker Statics Version", window.staticsVersion);
+
+      try {
+        window.petri = {"specs.pro-gallery.newFullscreenShare":"true","specs.LinguistProGalleryIntegrationSpec":"false","specs.pro-gallery.dynamicScrollPreloading":"true","specs.pro-gallery.appSettings":"true"};
+      } catch (e) {
+        window.petri = {};
+      }
+    </SCRIPT>
+   
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD>   
+<BODY>
+<SCRIPT src="worker_files/wix-private.min.js" crossorigin="anonymous"></SCRIPT>
+         
+<SCRIPT src="worker_files/dispatcher.js" type="text/javascript" async="" crossorigin="anonymous"></SCRIPT>
+     
+<SCRIPT>
+      function loadJS(filePath) {
+        var fileref = document.createElement('link');
+        fileref.setAttribute('rel', 'prefetch');
+        fileref.setAttribute('href', filePath);
+        document.getElementsByTagName('head')[0].appendChild(fileref);
+      }
+
+      try {
+        var Wix = window.Wix;
+        if (Wix && Wix.Worker && Wix.Worker.Utils) {
+          if (Wix.Worker.Utils.getViewMode() == 'editor') {
+            loadJS('//static.parastorage.com/services/editor-ui-lib/1.28.0/lib/editor-ui-lib-jquery.min.js');
+            loadJS('//static.parastorage.com/services/editor-ui-lib/1.28.0/lib/editor-ui-lib-angular.min.js');
+
+            if (window.location.search.toLowerCase().indexOf('isstore') > -1) {
+              var wixAddEventListener = Wix.Worker.addEventListener || Wix.addEventListener;
+              if (wixAddEventListener && typeof wixAddEventListener === 'function') {
+                wixAddEventListener(Wix.Events.SITE_PUBLISHED, function(e) {
+                  const xhr = new XMLHttpRequest();
+                  xhr.open('POST', '/api/v1/store/publish?instance=' + window.instance + '&isStore=true');
+                  xhr.withCredentials = true;
+                  xhr.setRequestHeader('Content-Type', 'application/json');
+                  xhr.send();
+                });
+              }
+            }
+
+          }
+        } else {
+          console.error('Wix.Worker.Utils isn\'t defined on worker.vm', Wix);
+        }
+      } catch (error) {
+        console.error('preload and publish event error', error);
+      }
+    </SCRIPT>
+     
+<SCRIPT>
+      try {
+        document.domain = 'wix.com';
+      } catch (e) {
+        console.log("couldn't set subdomain to wix.com");
+      }
+    </SCRIPT>
+     
+<SCRIPT src="worker_files/bundle.min.js" crossorigin="anonymous"></SCRIPT>
+     
+<SCRIPT>Sentry.init({ dsn: 'https://e8da9340b9594a029c2f6c127517893d@sentry.wixpress.com/111', environment: 'worker' });</SCRIPT>
+   </BODY></HTML>
